@@ -1,0 +1,70 @@
+lista = [1, 3 , 4 , 2, 7, 0]
+for i in range(6):
+	for j in range(6):
+		if lista[i] + lista[j] == 10:
+				
+				
+				print(lista)
+				print( f"{lista[i]}  {lista[j]} = 10 ")
+
+
+
+
+
+
+
+var myArray = [1,8,8,5,4,6,7,2,2,8]
+var num;
+var conten=1;
+var numresp;
+var contres=1;
+
+for(var u = 0; u < myArray.length; u++){
+    contres = 0;
+    for (let h = 0; h < myArray.length; h++) {
+        if (myArray[u] === myArray[h]) {
+            contres++;
+        }
+        if (contres>conten) {
+            num=myArray[u]
+            conten=contres;
+        }
+    }
+
+}
+
+console.log(num);
+console.log(conten);
+
+let myArray=[1,2,1,3,3,1,2,1,5,1]
+let num="1: ", num2="2: ", num3="3: ", num4="4: ", num5="5: ";
+let booleano = true;
+for (let i = 0; i < myArray.length; i++){
+    if (myArray < 1 || myArray > 5) {
+        booleano = false;
+        break;
+    }
+    switch (myArray[i]) {
+        case 1:
+        num += "*";
+        break;
+        case 2:
+        num2 += "*";
+        break;
+        case 3:
+        num3 += "*";
+        break;
+        case 4:
+        num4 += "*";
+        break;
+        case 5:
+        num5 += "*";
+        break;
+    }
+}
+console.log(num);
+console.log(num2);
+console.log(num3);
+console.log(num4);
+console.log(num5);
+
