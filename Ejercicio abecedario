@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="utf-8">
+	<script>
+		var cesar = cesar || (function() {
+			var doStaff = function (txt, desp, action) {
+				var replace = (function() {
+					var abcdario = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l',
+						'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'];
+					var k = abcdario.length;
+					return function(c) {
+						var i = abcdario.indexOf(c.toLowerCase());
+						if (i != -1) {
+							var pos = i;
+							if (action) {
+								// forward
+								pos += desp;
+								pos -= (pos >= k)?k:0;
+							} else {
+								// backward
+								pos -= desp;
+								pos += (pos < 0)?l:0;
+							}
+							return abcdario[pos];
+						}
+						return c;
+					};
+				})();
+				var rer = (/([a-z])/ig);
+				return String(txt).replace(rer, function (match) {
+					return replace(match);
+				});
+			};
+ 
+			return {
+					encode: function(txt, desp) {
+					return doStaff(txt, desp, true);
+				},
+					decode: function(txt, desp) {
+					return doStaff(txt, desp, false);
+				}
+			};
+		})();
+ 
+		function codificar()
+		{
+			document.getElementById("resultado").innerHTML=cesar.encode(document.getElementById("cadena").value, 3);
+		}
+		function decodificar()
+		{
+			document.getElementById("resultado").innerHTML=cesar.decode(document.getElementById("cadena").value, 3);
+		}
+	</script>
+ 
+	<style>
+		textarea {width:400px;}
+	</style>
+</head>
+ 
+<body>
+ 
+<textarea id="cadena"></textarea>
+ 
+<p><input type="button" value="codificar" onclick="codificar()"><input type="button" value="decodificar" onclick="decodificar()"></p>
+ 
+<div id="resultado"></div>
+ 
+</body>
+</html></script>
+</body>
+</html>
